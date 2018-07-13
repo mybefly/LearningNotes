@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+      //es5原生函数
+        // var f = function (a) {
+        //   return a;
+        // }
+        // f(1);
+     //es6 箭头函数
+     //如果箭头函数不需要参数 或者需要多个参数，就用一个圆括号代表参数部分
+     //无形参
+     var f = () =>5;
+     //等同于
+     var f = function(){return 5;}
+     //多个形参的时候
+     var sum = (num1,num2) => num1+num2;
+     //等同于
+      var sum = function(num1,num2){
+        return num1+num2;
+      }
+
+    //原始字面量创建对象
+      var person1={
+        name:'翟闯',
+        age:28,
+        fav:function(){
+          // console.log('喜欢篮球');
+          console.log(this);//使用时定义的对象
+          console.log(this.name);
+        }
+      }
+      person1.fav();
+    //箭头函数字面量创建对象
+      // var person2={
+      //   name:'翟闯',
+      //   age:28,
+      //   fav:(name)=>{
+      //     var name ="let 定义的name"
+      //     // console.log('喜欢篮球=>箭头函数');
+      //     //如果使用了箭头函数 this 指的是定义时使用的对象
+      //     //指向了我们的window 全局
+      //     console.log(this);
+      //     console.log(this.name);
+      //   }
+      // }
+      // person2.fav("传入的name");
+    //第二个坑  箭头函数中  arguments 不能使用 原生的可以使用
+        var person2={
+          name:'翟闯',
+          age:28,
+          fav:(name)=>{
+            var name ="let 定义的name"
+            // console.log('喜欢篮球=>箭头函数');
+            //如果使用了箭头函数 this 指的是定义时使用的对象
+            //指向了我们的window 全局
+            console.log(this);
+            console.log(arguments);
+            console.log(this.name);
+          }
+        }
+        person2.fav("传入的name");
+    </script>
+  </body>
+</html>

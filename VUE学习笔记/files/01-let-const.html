@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      //let声明的变量 是块级作用域，不能重复声明 es6 声明变量
+      // var a=10
+      // {
+      //   let a =12
+      // }
+      // console.log(a);
+
+      // var a = [];
+      // for (var i=0;i<10;i++) {
+      //   a[i] = function () {
+      //     console.log(i);
+      //   }
+      // }
+      // for (let i=0;i<10;i++) {
+      //   a[i] = function () {
+      //     console.log(i);
+      //   }
+      // }
+      // a[2]()
+          //var 声明的是全局变量 所以结果为10 无论a掺入的是几结果都是10
+          //let 声明的是 块儿级作用域只作用域for循环 所以输入的几 输出的就是几
+      //var 变量提升 会自动声明 不报错 报未赋值
+        // console.log(foo);
+        // var foo
+        // foo =2
+      //let 直接报错 变量未声明
+          // console.log(foo);
+          // let foo
+          // foo =2
+      //const 声明一个只读的常量，常量值不能更改
+      //const 声明的变量不得改变值，这意味着，const一旦声明 就必须初始化
+      //const 的作用域与let命令相同，只在声明的块儿级域内有效 不能重复声明
+    </script>
+
+  </body>
+</html>

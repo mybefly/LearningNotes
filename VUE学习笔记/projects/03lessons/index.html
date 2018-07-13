@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="app01">
+      <p>{{xxx}}</p>
+      <p>{{yyy}}</p>
+      <p>{{hhh}}</p>
+      <p>{{uuu}}</p>
+      <p>{{hhh.a}}</p>
+      <p>{{hhh.b}}</p>
+      <p>{{hhh.c}}</p>
+      <p>{{uuu[0]}}</p>
+
+    </div>
+
+    <script src="vue.js"> </script>
+    <script>
+    //创建vue实例
+    //参数 -->一定是对象
+    //属性：el
+      var app = new Vue({
+          el:"#app01",
+          //所有的数据都放在数据属性中
+          data:{ //必须是data 对象
+            xxx:"西瓜",
+            yyy:"桃子",
+            hhh:{
+              a:"我是 hhh下的A",
+              b:"我是 hhh下的B 我和A都没加双引号",
+              "c":"我是 hhh下的C 键值加了双引号"
+            },
+            uuu:["我是UUU",2,3,4]
+          }
+      })
+    </script>
+  </body>
+</html>

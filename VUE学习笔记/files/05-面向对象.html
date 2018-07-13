@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      //ES5 构造函数的方式创建对象（面向对象）
+    //   function Animal(name,age) {
+    //     this.name = name;
+    //     this.age = age
+    //     // this.showName()
+    //   }
+    //   //调用原型属性
+    //   Animal.prototype.showName = function(){
+    //     console.log(this.name);
+    //     console.log(this.age);
+    //   }
+    //
+    // var dog = new Animal("cat","10")
+    // console.log(dog.age);
+
+
+    //ES6  构造函数
+    class Animal {
+      constructor(name,age) { //必须有这个属性 单体函数
+          this.name = name;
+          this.age = age;
+          // this.showName();
+      } //不要加逗号（，） 否则报错
+      showName(){
+        console.log(this.name);
+      }
+    }
+    var d = new Animal("张三");
+    d.showName()
+
+    </script>
+
+  </body>
+</html>
