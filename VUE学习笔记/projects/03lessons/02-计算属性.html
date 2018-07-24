@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    </script>
+  </head>
+  <body>
+    <div id="computed">
+      {{msg.split(".").reverse().join("+")}}<p></p>
+      {{reverseStr}}<p></p>
+      <button type="button" name="button" @click="clickHandler">CLICK</button>
+    </div>
+
+
+
+
+    <script type="text/javascript" src="./vue.js"></script>
+    <script type="text/javascript">
+        var app = new Vue({
+          el:"#computed",
+          data:{
+            msg:"123.asdfasdf"
+          },
+          methods:{
+              clickHandler(){
+                  this.msg="1234567777.asdfasdf"
+              }
+          },
+          computed:{
+            // 1.在vue实例化中定义 ，关键字 computed
+            // 2.默认只有getter方法，必须有返回值 将大量的运算放在这里
+            // 3.在computed中声明方法 返回结果
+            // 4.用于监听
+            // 5.计算属性 计算的是数据的属性
+            // reverseStr(){
+            //   return this.msg.split(".").reverse().join("---")
+            // }
+            reverseStr:{
+              set:function(){
+
+              },
+              get:function(){
+                
+              }
+            }
+          }
+        })
+    </script>
+
+  </body>
+</html>

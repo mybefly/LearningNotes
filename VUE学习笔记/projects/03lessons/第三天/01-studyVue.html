@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        .box{
+            width:100px;
+            height:100px;
+            background: blue;
+        }
+        .box2{
+            width: 100px;
+            height:100px;
+            background:red;
+
+        }
+        ul{
+          display: none;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{msg}}</p>
+      <p> 插入1+1= {{1+1}}</p>
+      <p>插入三目运算符：{{1>2?"我是 1":"我是2"}}</p>
+      <p v-if = 'show'> 我是块儿标签p</p>
+      <div v-if = 'show'>哈哈哈</div>
+      <div><button v-on:click = 'clickHandler'>切换</botton></div>
+      <div><button @click = 'clickHandler'>切换</botton></div>
+      <p></p>
+      <div ><h3 v-show = isShow >我是v-show</h3></div>
+      <div title="123">哈哈哈哈</div>
+      <div>{{mtmp}}</div>
+      <div class="box box2" style="backgroud:red  ">
+        123
+      </div>
+      <!-- <div><button @click ="qiehuan ">切换颜色</button></div> -->
+      <div >
+          <img :src="imgagePath" alt="" @mouseenter="stoplunbo" @mouseleave="lunbo">
+          <ul>
+            <li v-for="(item,index) in imgArr" @click='currentImage(item)' ></li>
+          </ul>
+          <div >
+            <button type="button" name="button" @click='upimg'>上一张</button>
+            <button type="button" name="button" @click='nextimg'>下一张</button>
+            <button type="button" name="button" @click='lunbo'>轮播</button>
+            <button type="button" name="button" @click='stoplunbo'>停止轮播</button>
+          </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./vue.js"></script>
+    <script type="text/javascript">
+      var app = new Vue({
+        el:"#app",
+        data:{
+          msg:"今天学习VUE 哈哈哈哈今天大雨 但是今天要开心",
+          show:true,
+          isShow:true,
+          mtmp:`页面加载于：${new Date().toLocaleString()}`,
+          imgArr:[
+            {id:1,src:'./images/1.jpg'},
+            {id:2,src:'./images/2.jpg'},
+            {id:3,src:'./images/3.jpg'},
+            {id:4,src:'./images/4.jpg'}
+          ],
+          imgagePath:'./images/1.jpg',
+          imageIndex:0,
+          lb:null
+        },
+        created(){
+            this.lb=setInterval(this.nextimg,2000)
+        },
+        methods:{//绑定的事件方法
+          clickHandler(){
+            alert(111)
+            // this.show = !this.show;
+          },
+          currentImage(item){
+              this.imgagePath = item.src;
+          },
+          upimg(){
+             if(this.imageIndex==0){
+                this.imageIndex=4;
+             }
+             this.imageIndex--;
+             this.imgagePath = this.imgArr[this.imageIndex].src;
+          },
+          nextimg(){
+              if (this.imageIndex == this.imgArr.length-1){
+                this.imageIndex=-1;
+              }
+              this.imageIndex++;
+              this.imgagePath = this.imgArr[this.imageIndex].src;
+          },
+          lunbo(){
+            this.lb=setInterval(this.nextimg,2000);
+          },
+          stoplunbo(){
+            clearInterval(this.lb);
+          }
+
+
+        }
+      })
+    </script>
+  </body>
+</html>

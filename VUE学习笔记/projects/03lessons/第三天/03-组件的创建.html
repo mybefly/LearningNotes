@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="app">
+      {{msg}}
+      <Vheader></Vheader>
+      <Vheader></Vheader>
+      <Vheader></Vheader>
+      <Vheader></Vheader>
+      <Vheader></Vheader>
+    </div>
+
+    <script type="text/javascript" src="vue.js"></script>
+    <script type="text/javascript">
+
+        // 组件的创建  关键字 component
+      Vue.component("Vheader",{
+          data:function(){
+            return {
+              // 必须返回，哪怕是空对象
+            }
+          },
+          template: `<div>我是组件<哈哈哈哈/div>`
+        })
+        // // 组件的创建
+      var app = new Vue({
+        el:"#app",
+        data:{
+            msg:"123456"
+        },
+        computed:{
+
+        },
+        methods:{
+
+        }
+      })
+    </script>
+  </body>
+</html>
